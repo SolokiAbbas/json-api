@@ -5,6 +5,7 @@ class CreateWebsites < ActiveRecord::Migration[5.1]
       t.string :h1
       t.string :h2
       t.string :h3
+      t.string :url, null: false
       t.timestamps
     end
   end
