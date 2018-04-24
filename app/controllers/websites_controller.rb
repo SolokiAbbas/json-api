@@ -7,11 +7,11 @@ class WebsitesController < ApplicationController
 
   def create
     @websites = Website.new
-    @website.h1 = Websites.parseCSS("h1",website_params)
-    @website.h2 = Websites.parseCSS("h2",website_params)
-    @website.h3 = Websites.parseCSS("h3",website_params)
-    @website.links = Websites.parseCSS("a",website_params)
-    @website.url = website_params.url
+    @websites.h1 = Websites.parseCSS("h1",website_params)
+    @websites.h2 = Websites.parseCSS("h2",website_params)
+    @websites.h3 = Websites.parseCSS("h3",website_params)
+    @websites.links = Websites.parseCSS("a",website_params)
+    @websites.url = website_params.url
 
     if @websites.save
       render :index
