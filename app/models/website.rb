@@ -7,9 +7,10 @@ class Website < ApplicationRecord
     temp = ''
     doc = Nokogiri::HTML(open(url))
     doc.css(tag).each do |links|
-      temp+= links.content + ' '
+      temp+= links.content.strip + '  '
     end
-    return temp
+    # Double whitespace to separate each tag from other tags
+    return temp.strip
   end
 
 end

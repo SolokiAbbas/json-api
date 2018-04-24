@@ -8,8 +8,8 @@ describe "Adding URLS to Database" do
   end
 
   it "should add additional tags correctly to database" do
-    websites.h1 = Website.last.parseCSS("h1", "https://www.google.com")
-    expect(websites.h1).to eql("new new")
+    websites.h2 = Website.last.parseCSS("h2", "http://www.nokogiri.org/tutorials/installing_nokogiri.html")
+    expect(websites.h2).to eql("Install with included libraries (RECOMMENDED)  Install with system libraries  Install with custom / non-standard libraries")
   end
 
 end
