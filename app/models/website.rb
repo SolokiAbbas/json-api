@@ -1,6 +1,14 @@
+require 'nokogiri'
+
 class Website < ApplicationRecord
 
-  def parseUrl(params)
+  def parseCSS(tag, url)
+    temp = ''
+    doc = Nokogiri::HTML(open(url))
+    doc.css(tag).each do |links|
+      temp+= links.content + ' '
+    end
+    return temp
   end
-  
+
 end
