@@ -4,13 +4,12 @@ describe "Adding URLS to Database" do
 
   it "should add to database" do
     websites.save
-    expect(Website.last).to equal(websites)
+    expect(Website.last).to eql(websites)
   end
 
-  it "should add multiple tags" do
-  end
-
-  it "should display all in database" do
+  it "should add additional tags correctly to database" do
+    websites.h1 = Website.last.parseCSS("h1", "https://www.google.com")
+    expect(websites.h1).to eql("new new")
   end
 
 end
