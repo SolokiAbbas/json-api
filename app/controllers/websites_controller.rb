@@ -6,7 +6,8 @@ class WebsitesController < ApplicationController
   end
 
   def create
-    @websites = Websites.new
+    @websites = Websites.parseUrl(params)
+
     if @websites.save
       render :index
     else
