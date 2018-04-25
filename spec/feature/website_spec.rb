@@ -16,8 +16,8 @@ describe "Adding URLS to Database" do
 
   it "should get a link and add it to database" do
     post 'localhost:3000/websites' , { :websites => {:url => 'http://www.nokogiri.org/tutorials/installing_nokogiri.html' } }
-    puts response.body
-    expect(Website.last.h2).to eql("Install with included libraries (RECOMMENDED)  Install with system libraries  Install with custom / non-standard libraries")
+
+    expect(JSON.parse(response.body)).to eql({"status" => 200})
   end
 
 end

@@ -15,7 +15,7 @@ class WebsitesController < ApplicationController
     @websites.url = site
 
     if @websites.save
-      render json: @websites, status: 200
+      render json: {:status => 200}, status: 200
     else
       ender json: @websites.errors.full_messages, status: 422
     end
