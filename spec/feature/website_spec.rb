@@ -1,3 +1,4 @@
+require 'airborne'
 
 describe "Adding URLS to Database" do
   subject(:websites){Website.new({url: "new", links: "new", h1: "new", h2: "new", h3: "new"})}
@@ -12,12 +13,16 @@ describe "Adding URLS to Database" do
     expect(websites.h2).to eql("Install with included libraries (RECOMMENDED)  Install with system libraries  Install with custom / non-standard libraries")
   end
 
+  it "should get a link and add it to database" do
+    post '/websites' , params: { :url => 'http://www.nokogiri.org/tutorials/installing_nokogiri.html'}
+    expect(JSON.parse(response.body)['url']).to eql(Website.last)
+  end
+
 end
 
 describe "Testing JSON URLS", type: :feature do
+  subject(:websites){Website.new({url: "new", links: "new", h1: "new", h2: "new", h3: "new"})}
 
-  it "should get a link and add it to database" do
-  end
 
   it "should should make sure its a link" do
   end

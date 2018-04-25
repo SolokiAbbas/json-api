@@ -32,6 +32,7 @@ gem 'jsonapi-resources'
 # gem 'capistrano-rails', group: :development
 gem 'nokogiri'
 gem 'rspec'
+gem 'airborne'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
