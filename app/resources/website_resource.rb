@@ -1,4 +1,4 @@
 class WebsiteResource < JSONAPI::Resource
-  attributes :links, :h1, :h2, :h3
+  attributes :links, :h1, :h2, :h3, :url
 
 end

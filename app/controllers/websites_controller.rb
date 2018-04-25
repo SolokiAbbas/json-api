@@ -12,10 +12,7 @@ class WebsitesController < ApplicationController
 
   def create
     @websites = Website.new
-    debugger
-    respond_to do |format|
-
-    end
+    respond_to :html, :jsonapi
     site = params[:websites][:url]
     @websites.h1 = Website.last.parseCSS("h1",site)
     @websites.h2 = Website.last.parseCSS("h2",site)
