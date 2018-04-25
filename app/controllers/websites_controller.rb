@@ -2,11 +2,20 @@ class WebsitesController < ApplicationController
 
   def index
     @websites = Website.all
-    render :index
+    respond_to do |format|
+      format.jsonapi do
+        render json: {}, status: 200
+      end
+      format.html {render :index}
+    end
   end
 
   def create
     @websites = Website.new
+    debugger
+    respond_to do |format|
+
+    end
     site = params[:websites][:url]
     @websites.h1 = Website.last.parseCSS("h1",site)
     @websites.h2 = Website.last.parseCSS("h2",site)
