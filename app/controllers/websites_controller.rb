@@ -7,15 +7,15 @@ class WebsitesController < ApplicationController
 
   def create
     @websites = Website.new
-    puts @websites
-    @websites.h1 = Website.parseCSS("h1",website_params)
-    @websites.h2 = Website.parseCSS("h2",website_params)
-    @websites.h3 = Website.parseCSS("h3",website_params)
-    @websites.links = Website.parseCSS("a",website_params)
-    @websites.url = website_params.url
+    site = params[:websites][:url]
+    @websites.h1 = Website.last.parseCSS("h1",site)
+    @websites.h2 = Website.last.parseCSS("h2",site)
+    @websites.h3 = Website.last.parseCSS("h3",site)
+    @websites.links = Website.last.parseCSS("a",site)
+    @websites.url = site
 
     if @websites.save
-      render :index
+      render json: @websites, status: 200
     else
       ender json: @websites.errors.full_messages, status: 422
     end
