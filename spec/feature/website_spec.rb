@@ -14,7 +14,8 @@ describe "Adding URLS to Database" do
   end
 
   it "should get a link and add it to database" do
-    post '/websites' , params: { :url => 'http://www.nokogiri.org/tutorials/installing_nokogiri.html'}
+    post 'localhost:3000/websites' , { 'params' => { :url => 'http://www.nokogiri.org/tutorials/installing_nokogiri.html' } }
+    puts websites
     expect(JSON.parse(response.body)['url']).to eql(Website.last)
   end
 
